@@ -1,0 +1,22 @@
+import time
+import random
+import RPi.GPIO as GPIO
+
+print("Servo Motor Test")
+print("Stop is Keyboard Ctrl+C")
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(17,GPIO.OUT)
+
+p=GPIO.PWM(17,100)
+p.start(5)
+
+while True:
+	angle=180
+	
+	duty=float(angle)/10.0+2.5
+	p.ChangeDutyCycle(duty)
+	time.sleep(0.5)
+
+print("Servo Motor End")
+GPIO.cleanup()

@@ -4,6 +4,7 @@ import time
 print ("Servo Motor")
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(17,GPIO.OUT)
+GPIO.setwarnings(False)
 
 p=GPIO.PWM(17,100)
 p.start(5)
